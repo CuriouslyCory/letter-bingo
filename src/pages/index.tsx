@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Button } from "~/components/ui/button";
 
 export default function Home() {
   const letters = useMemo(
@@ -89,25 +90,17 @@ export default function Home() {
             ))}
           </tbody>
         </table>
-        <div className="mx-auto mt-6 w-fit">
-          <button
-            className="rounded-lg border-2 px-4 py-2 print:hidden"
-            onClick={updateLetterMatrix}
-          >
+        <div className="mx-auto mt-6 flex justify-center gap-x-4 print:hidden">
+          <Button variant={"outline"} onClick={updateLetterMatrix}>
             New Sheet
-          </button>
+          </Button>
           {letterMatrix.length > 0 && (
-            <button
-              className="rounded-lg border-2 px-4 py-2 print:hidden"
-              onClick={() => window.print()}
-            >
+            <Button variant={"outline"} onClick={() => window.print()}>
               Print
-            </button>
+            </Button>
           )}
           <Link href="/letter-caller">
-            <button className="rounded-lg border-2 px-4 py-2 print:hidden">
-              Play Game
-            </button>
+            <Button variant={"outline"}>Play Game</Button>
           </Link>
         </div>
       </main>

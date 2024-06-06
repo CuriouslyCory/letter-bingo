@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useMemo, useState } from "react";
+import { Button } from "~/components/ui/button";
 
 export default function LetterCaller() {
   const [currentLetter, setCurrentLetter] = useState("");
@@ -44,12 +45,9 @@ export default function LetterCaller() {
       </Head>
       <main className="flex flex-col items-center">
         <h2 className="text-4xl">{currentLetter}</h2>
-        <button
-          className="rounded-lg border-2 px-4 py-2"
-          onClick={getRandomLetter}
-        >
+        <Button variant={"outline"} onClick={getRandomLetter}>
           Pull a Letter
-        </button>
+        </Button>
         {calledLetters.length > 0 && (
           <h3 className="mt-6 text-2xl">Called Letters</h3>
         )}
@@ -59,9 +57,9 @@ export default function LetterCaller() {
           ))}
         </ul>
         {calledLetters.length > 0 && (
-          <button className="rounded-lg border-2 px-4 py-2" onClick={reset}>
+          <Button variant={"outline"} onClick={reset}>
             Start Over
-          </button>
+          </Button>
         )}
       </main>
     </>

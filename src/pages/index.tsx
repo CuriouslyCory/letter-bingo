@@ -86,7 +86,7 @@ export default function Home() {
         </table>
 
         <button
-          className="rounded-lg border-2 px-4 py-2"
+          className="rounded-lg border-2 px-4 py-2 print:hidden"
           onClick={updateLetterMatrix}
         >
           New Sheet

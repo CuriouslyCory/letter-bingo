@@ -27,6 +27,11 @@ export default function LetterCaller() {
     setCurrentLetter(`${randomBingoLetter}-${randomLetter}`);
   };
 
+  const reset = () => {
+    setCalledLetters([]);
+    setCurrentLetter("");
+  };
+
   return (
     <>
       <Head>
@@ -43,13 +48,18 @@ export default function LetterCaller() {
           className="rounded-lg border-2 px-4 py-2"
           onClick={getRandomLetter}
         >
-          Next
+          Pull a Letter
         </button>
         <ul>
           {calledLetters.map((letter, index) => (
             <li key={index}>{letter}</li>
           ))}
         </ul>
+        {calledLetters.length > 0 && (
+          <button className="rounded-lg border-2 px-4 py-2" onClick={reset}>
+            Start Over
+          </button>
+        )}
       </main>
     </>
   );

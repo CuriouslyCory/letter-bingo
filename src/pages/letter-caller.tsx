@@ -43,13 +43,16 @@ export default function LetterCaller() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h2>{currentLetter}</h2>
+        <h2 className="text-4xl">{currentLetter}</h2>
         <button
           className="rounded-lg border-2 px-4 py-2"
           onClick={getRandomLetter}
         >
           Pull a Letter
         </button>
+        {calledLetters.length > 0 && (
+          <h3 className="mt-6 text-2xl">Called Letters</h3>
+        )}
         <ul>
           {calledLetters.map((letter, index) => (
             <li key={index}>{letter}</li>

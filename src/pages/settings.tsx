@@ -41,17 +41,7 @@ const SettingsPage: React.FC = () => {
 
   return (
     <main className="flex flex-col items-center">
-      <div className="mb-4">
-        <input
-          type="text"
-          value={addInput}
-          onChange={(e) => setAddInput(e.target.value)}
-          placeholder="Enter letter or number to add"
-          className="mr-2 border p-2"
-        />
-        <Button onClick={handleAddLetter}>Add Letter/Number</Button>
-      </div>
-
+      <h2 className="text-2xl">Current Letters/Numbers</h2>
       <ul className="flex flex-wrap gap-x-2">
         {letters.sort().map((letter, index) => (
           <li
@@ -63,6 +53,16 @@ const SettingsPage: React.FC = () => {
           </li>
         ))}
       </ul>
+      <div className="mt-4">
+        <input
+          type="text"
+          value={addInput}
+          onChange={(e) => setAddInput(e.target.value)}
+          placeholder="Enter letter or number to add"
+          className="mr-2 border p-2"
+        />
+        <Button onClick={handleAddLetter}>Add Letter/Number</Button>
+      </div>
     </main>
   );
 };

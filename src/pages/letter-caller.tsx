@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { useMemo, useState } from "react";
 import { Button } from "~/components/ui/button";
+import { useToast } from "~/components/ui/use-toast";
 
 export default function LetterCaller() {
   const [currentLetter, setCurrentLetter] = useState("");
   const [calledLetters, setCalledLetters] = useState<string[]>([]);
+  const { toast } = useToast();
 
   const bingo = ["B", "I", "N", "G", "O"];
   const letters = useMemo(
@@ -17,6 +19,10 @@ export default function LetterCaller() {
     const randomLetterIndex = Math.floor(Math.random() * letters.length);
     const randomBingoLetter = bingo[randomBingoIndex];
     const randomLetter = letters[randomLetterIndex];
+    if (calledLetters.length >= bingo.length * letters.length) {
+      toast({ title: "All letters have been called!" });
+      return;
+    }
     if (calledLetters.includes(`${randomBingoLetter}-${randomLetter}`)) {
       getRandomLetter();
       return;

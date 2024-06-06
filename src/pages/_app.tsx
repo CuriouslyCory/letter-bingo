@@ -3,6 +3,7 @@ import { type AppType } from "next/app";
 
 import "~/styles/globals.css";
 import Link from "next/link";
+import { Toaster } from "~/components/ui/toaster";
 
 const space_mono = Space_Mono({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         </nav>
       </header>
       <Component {...pageProps} />
+      <Toaster />
     </main>
   );
 };

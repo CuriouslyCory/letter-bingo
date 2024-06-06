@@ -42,7 +42,7 @@ export default function LetterCaller() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="flex flex-col items-center">
         <h2 className="text-4xl">{currentLetter}</h2>
         <button
           className="rounded-lg border-2 px-4 py-2"

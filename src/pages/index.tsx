@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function Home() {
   const letters = useMemo(
@@ -37,6 +37,10 @@ export default function Home() {
     setLetterMatrix(randomArray());
   }, [randomArray]);
 
+  useEffect(() => {
+    updateLetterMatrix();
+  }, [updateLetterMatrix]);
+
   return (
     <>
       <Head>
@@ -47,8 +51,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <table className="border-collapse border border-slate-500 text-4xl">
+      <main className="">
+        <table className="mx-auto border-collapse border border-slate-500 text-4xl">
           <thead>
             <tr>
               <th className="border border-slate-600 p-4">B</th>
@@ -85,24 +89,27 @@ export default function Home() {
             ))}
           </tbody>
         </table>
-
-        <button
-          className="rounded-lg border-2 px-4 py-2 print:hidden"
-          onClick={updateLetterMatrix}
-        >
-          New Sheet
-        </button>
-        <button
-          className="rounded-lg border-2 px-4 py-2 print:hidden"
-          onClick={() => window.print()}
-        >
-          Print
-        </button>
-        <Link href="/letter-caller">
-          <button className="rounded-lg border-2 px-4 py-2 print:hidden">
-            Play Game
+        <div className="mx-auto mt-6 w-fit">
+          <button
+            className="rounded-lg border-2 px-4 py-2 print:hidden"
+            onClick={updateLetterMatrix}
+          >
+            New Sheet
           </button>
-        </Link>
+          {letterMatrix.length > 0 && (
+            <button
+              className="rounded-lg border-2 px-4 py-2 print:hidden"
+              onClick={() => window.print()}
+            >
+              Print
+            </button>
+          )}
+          <Link href="/letter-caller">
+            <button className="rounded-lg border-2 px-4 py-2 print:hidden">
+              Play Game
+            </button>
+          </Link>
+        </div>
       </main>
     </>
   );

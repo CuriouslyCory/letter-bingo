@@ -1,13 +1,15 @@
 # Lettering Bingo
 
+[https://letter-bingo.curiouslycory.com/](https://letter-bingo.curiouslycory.com/)
+
 Generate bingo cards with letters and numbers for kids to trace to practice their lettering.
 
 ## Features
 
-The index page will generate bingo cards that you can print. (http://localhost:3000/)
-Then use the letter caller page to randomly select a letter and number for the kids to trace. (http://localhost:3000/letter-caller)
+- Generate bingo cards that you can print. (https://letter-bingo.curiouslycory.com/)
+- Use the letter caller page to randomly select a letter or number for the kids to trace. (https://letter-bingo.curiouslycory.com/letter-caller)
 
-## Installation
+## Local Installation
 
 - Clone this repo and run `npm install` to install the dependencies.
 - Run `npm run dev` to start the server.

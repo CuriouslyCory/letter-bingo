@@ -23,6 +23,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <li>
               <Link href="/letter-caller">Letter Caller</Link>
             </li>
+            <li>
+              <Link href="/settings">Settings</Link>
+            </li>
           </ul>
         </nav>
       </header>

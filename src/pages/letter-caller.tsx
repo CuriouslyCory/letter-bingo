@@ -1,7 +1,9 @@
+import { useAtomValue } from "jotai";
 import Head from "next/head";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
+import { lettersAtom } from "~/lib/state";
 
 export default function LetterCaller() {
   const [currentLetter, setCurrentLetter] = useState("");
@@ -9,10 +11,7 @@ export default function LetterCaller() {
   const { toast } = useToast();
 
   const bingo = ["B", "I", "N", "G", "O"];
-  const letters = useMemo(
-    () => ["a", "b", "B", "d", "D", "n", "N", "3", "7"] as const,
-    [],
-  );
+  const letters = useAtomValue(lettersAtom);
 
   const getRandomLetter = () => {
     const randomBingoIndex = Math.floor(Math.random() * bingo.length);

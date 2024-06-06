@@ -1,13 +1,12 @@
+import { useAtomValue } from "jotai";
 import Head from "next/head";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
+import { lettersAtom } from "~/lib/state";
 
 export default function Home() {
-  const letters = useMemo(
-    () => ["a", "b", "B", "d", "D", "n", "N", "3", "7"] as const,
-    [],
-  );
+  const letters = useAtomValue(lettersAtom);
   const [letterMatrix, setLetterMatrix] = useState<string[][]>([]);
 
   const randomArray = useCallback(() => {

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 
 export default function Home() {
@@ -91,6 +92,17 @@ export default function Home() {
         >
           New Sheet
         </button>
+        <button
+          className="rounded-lg border-2 px-4 py-2 print:hidden"
+          onClick={() => window.print()}
+        >
+          Print
+        </button>
+        <Link href="/letter-caller">
+          <button className="rounded-lg border-2 px-4 py-2 print:hidden">
+            Play Game
+          </button>
+        </Link>
       </main>
     </>
   );

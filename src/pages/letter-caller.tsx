@@ -20,7 +20,10 @@ export default function LetterCaller() {
     const randomBingoLetter = bingo[randomBingoIndex];
     const randomLetter = letters[randomLetterIndex];
     if (calledLetters.length >= bingo.length * letters.length) {
-      toast({ title: "All letters have been called!" });
+      toast({
+        title: "All letters have been called!",
+        description: "Click 'Start Over' to begin a new game.",
+      });
       return;
     }
     if (calledLetters.includes(`${randomBingoLetter}-${randomLetter}`)) {
